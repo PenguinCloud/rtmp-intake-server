@@ -1,0 +1,5 @@
+---
+- name: Create SRS files
+  shell:
+    chdir: /usr/local/srs/trunk
+    cmd: ./configure && make

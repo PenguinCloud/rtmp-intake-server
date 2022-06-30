@@ -1,5 +1,15 @@
 ---
 version: "2.4"
 services:
-  app:
-    image: penguintech/core-ansible
+  ossrs-server:
+    build: .
+    volumes:
+      - /opt/manager/vars
+    ports:
+      - 25565:25565
+    restart: always
+    healthcheck:
+      test: [ "CMD","ansible-playbook","upstart.yml","--tag","test" ]
+      timeout: 1m
+      retries: 3
+      interval: 20s

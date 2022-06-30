@@ -1,9 +1,10 @@
 ---
-- hosts: localhost
+- name: Install OSSRS Server
+  hosts: localhost
   connection: local
-  vars_file:
+  vars_files:
     - vars/base.yml
-   become: yes
+  become: yes
   become_user: root
   remote_user: root
   tasks:
@@ -12,7 +13,7 @@
         file: "vars/{{ BUILD_ENVIRONMENT }}.yml"
       tags:
         - always
-    ignore_errors: yes
+      ignore_errors: yes
     - name: Include Special Variables
       include_vars:
         file: "vars/{{ lookup('env', 'COMPUTE_ENV') | default( 'base', True) }}.yml"
@@ -35,13 +36,13 @@
         - run
     - name: Run tests to make sure build and run applied application correctly
       include_tasks:
-        file: jobs/run/tests.yml
+        file: jobs/test/test.yml
       tags:
         - run
         - test
     - name: Execute application
       include_tasks:
-        file: jobs/run/exec.yml
+        file: jobs/exec/exec.yml
         apply:
           tags:
             - exec
@@ -49,7 +50,7 @@
         - exec
     - name: Run tests to make sure app is running as expected
       include_tasks:
-        file: jobs/run/tests.yml
+        file: jobs/tests/test.yml
       tags:
         - exec
         - test

@@ -1,0 +1,4 @@
+---
+- name: Create SRS
+  include_tasks:
+    file: install-ossrs.yml
