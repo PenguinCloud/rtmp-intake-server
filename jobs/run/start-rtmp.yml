@@ -1,5 +1,5 @@
 ---
-- name: Start RTMP Server
+- name: Start RTMP to RTC Server
   shell:
     chdir: "/opt/manager/bins/srs/trunk"
-    cmd: ./objs/srs -c conf/rtmp.conf
+    cmd: ./objs/srs -c conf/rtmp2rtc.conf

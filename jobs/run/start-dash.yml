@@ -1,0 +1,5 @@
+---
+- name: Start DASH Server
+  shell:
+    chdir: "/opt/manager/bins/srs/trunk"
+    cmd: ./objs/srs -c conf/dash.conf

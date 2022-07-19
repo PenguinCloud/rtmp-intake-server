@@ -1,0 +1,5 @@
+---
+- name: Start Edge Server
+  shell:
+    chdir: "/opt/manager/bins/srs/trunk"
+    cmd: ./objs/srs -c conf/edge.conf
