@@ -1,0 +1,17 @@
+---
+- name: Install them all
+  apt:
+    name:
+      - gcc
+      - g++
+      - make
+      - patch
+      - unzip
+      - valgrind
+      - valgrind-dbg
+      - tcl
+      - git
+      - cmake
+      - pkg-config
+    force_apt_get: yes
+    update_cache: yes

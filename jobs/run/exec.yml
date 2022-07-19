@@ -1,0 +1,40 @@
+---
+- name: Run RTMP Server
+  include_tasks:
+    file: start-rtmp.yml
+  when: server.exectype == "rtmp"
+
+- name: Run RTC Server
+  include_tasks:
+    file: start-rtc.yml
+  when: server.exectype == "rtc"
+
+- name: Run RTMP 2 RTC Server
+  include_tasks:
+    file: start-rtmp2rtc.yml
+  when: server.exectype == "rtmp2rtc"
+
+- name: Run DASH Server
+  include_tasks:
+    file: start-dash.yml
+  when: server.exectype == "dash"
+
+- name: Run HLS Server
+  include_tasks:
+    file: start-hls.yml
+  when: server.exectype == "hls"
+
+- name: Run HLS Edge Server
+  include_tasks:
+    file: start-hlsedge.yml
+  when: server.exectype == "hlsedge"
+
+- name: Run HLS Origin Server
+  include_tasks:
+    file: start-hlsorigin.yml
+  when: server.exectype == "hlsorigin"
+
+- name: Run Edge Server
+  include_tasks:
+    file: start-edge.yml
+  when: server.exectype == "edge"

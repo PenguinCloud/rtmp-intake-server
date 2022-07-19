@@ -1,16 +1,4 @@
 ---
-- name: Install Git
-  apt:
-    name: git
-    force_apt_get: yes
-    update_cache: yes
-
-- name: Install Sudo
-  apt:
-    name: sudo
-    force_apt_get: yes
-    update_cache: yes
-
 - name: Download OSSRS files
   git:
     repo: "https://github.com/ossrs/srs.git"
@@ -20,9 +8,4 @@
 - name: Build OSSRS
   shell:
     chdir: "/opt/manager/bins/srs/trunk"
-    cmd: "sudo ./configure && make"
-
-- name: Configure
-  shell:
-    chdir: "opt/manager/bins/srs/trunk"
-    cmd: "./objs/srs -c conf/srs.conf"
+    cmd: ./configure && make

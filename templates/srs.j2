@@ -1,0 +1,39 @@
+# main config for srs.
+# @see full.conf for detail config.
+
+listen              "{{ server.portone }}";
+max_connections     "{{ server.maxconnection }}";
+#srs_log_tank        file;
+#srs_log_file        ./objs/srs.log;
+daemon              on;
+http_api {
+    enabled         on;
+    listen          "{{ server.portthree }}";
+}
+http_server {
+    enabled         on;
+    listen          "{{ server.porttwo }}";
+    dir             ./objs/nginx/html;
+}
+rtc_server {
+    enabled on;
+    listen "{{ server.portfour }}"; # UDP port
+    # @see https://github.com/ossrs/srs/wiki/v4_CN_WebRTC#config-candidate
+    candidate $CANDIDATE;
+}
+vhost __defaultVhost__ {
+    hls {
+        enabled         "{{ type.hls }}";
+    }
+    http_remux {
+        enabled     on;
+        mount       [vhost]/[app]/[stream].flv;
+    }
+    rtc {
+        enabled     "{{ type.rtc }}";
+        # @see https://github.com/ossrs/srs/wiki/v4_CN_WebRTC#rtmp-to-rtc
+        rtmp_to_rtc "{{ type.rtmp2rtc }}";
+        # @see https://github.com/ossrs/srs/wiki/v4_CN_WebRTC#rtc-to-rtmp
+        rtc_to_rtmp "{{ type.rtc2rtmp }}";
+    }
+}

@@ -1,4 +1,12 @@
 ---
+- name: Install Dependencies
+  include_tasks:
+    file: install-dependencies.yml
+
 - name: Create SRS
   include_tasks:
     file: install-ossrs.yml
+
+- name: Configure SRS
+  include_tasks:
+    file: configure.yml

@@ -1,0 +1,19 @@
+---
+server:
+  ip: "{{ lookup('env', 'IP') }}"
+  portone: "{{ lookup('env', 'PORT1') }}"
+  porttwo: "{{ lookup('env', 'PORT2') }}"
+  portthree: "{{ lookup('env', 'PORT3') }}"
+  portfour: "{{ lookup('env', 'PORT4') }}"
+  portfive: "{{ lookup('env', 'PORT5') }}"
+  portsix: "{{ lookup('env', 'PORT6') }}"
+  maxconnection: "{{ lookup('env', 'MAXCONNECTION') }}"
+  exectype: "{{ lookup('env', 'EXECTYPE') }}"
+type:
+  rtmp: "{{ lookup('env', 'RTMP') }}"
+  hls: "{{ lookup('env', 'HLS') }}"
+  dash: "{{ lookup('env', 'DASH') }}"
+  rtmp2rtc: "{{ lookup('env', 'RTMP2RTC') }}"
+  rtc: "{{ lookup('env', 'RTC') }}"
+  hlsorigin: "{{ lookup('env', 'HLSORIGIN') }}"
+  hlsedge: "{{ lookup('env', 'HLSEDGE') }}"

@@ -1,7 +1,0 @@
----
-- name: Move ETC files
-  file:
-    force: yes
-    src: "/usr/local/srs/etc/init.d/srs"
-    state: link
-    dest: "/etc/init.d/srs"
