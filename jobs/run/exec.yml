@@ -14,6 +14,11 @@
     file: start-rtmp2rtc.yml
   when: server.exectype == "rtmp2rtc"
 
+- name: Run RTC Server
+  include_tasks:
+    file: start-rtc2rtmp.yml
+  when: server.exectype == "rtc2rtmp"
+
 - name: Run DASH Server
   include_tasks:
     file: start-dash.yml

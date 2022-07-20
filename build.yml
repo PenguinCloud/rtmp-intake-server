@@ -16,7 +16,7 @@
       ignore_errors: yes
     - name: Include Special Variables
       include_vars:
-        file: "vars/{{ lookup('env', 'COMPUTE_ENV') | default( 'base', True) }}.yml"
+        file: "vars/{{ lookup('env', 'COMPUTE_ENV') | default('base', True) }}.yml"
       ignore_errors: yes
     - name: Build And Install
       include_tasks:

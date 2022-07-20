@@ -2,14 +2,14 @@
 # @see https://github.com/ossrs/srs/wiki/v1_CN_Edge
 # @see full.conf for detail config.
 
-listen              "{{ server.port-one }}";
+listen              "{{ server.portone }}";
 max_connections     "{{ server.maxconnection }}";
 pid                 objs/edge.pid;
 daemon              off;
 srs_log_tank        console;
 http_server {
     enabled         on;
-    listen          "{{ server.port-two }}";
+    listen          "{{ server.porttwo }}";
     dir             ./objs/nginx/html;
 }
 vhost __defaultVhost__ {

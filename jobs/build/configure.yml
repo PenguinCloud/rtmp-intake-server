@@ -2,14 +2,14 @@
 - name: Ready SRS
   template:
     src: /opt/manager/templates/srs.j2
-    dest: /opt/manager/bins/srs/trunk/conf/srs.conf
+    dest: /opt/srs/trunk/conf/srs.conf
     force: true
     mode: "0544"
 
 - name: Configure RTMP
   template:
     src: /opt/manager/templates/rtmp.j2
-    dest: /opt/manager/bins/srs/trunk/conf/rtmp.conf
+    dest: /opt/srs/trunk/conf/rtmp.conf
     force: true
     mode: "0544"
   when: type.rtmp == "on"
@@ -17,7 +17,7 @@
 - name: Configure RTC
   template:
     src: /opt/manager/templates/rtc.j2
-    dest: /opt/manager/bins/srs/trunk/conf/rtc.conf
+    dest: /opt/srs/trunk/conf/rtc.conf
     force: true
     mode: "0544"
   when: type.rtc == "on"
@@ -25,15 +25,23 @@
 - name: Configure RTMP 2 RTC
   template:
     src: /opt/manager/templates/rtmp2rtc.j2
-    dest: /opt/manager/bins/srs/trunk/conf/rtmp2rtc.conf
+    dest: /opt/srs/trunk/conf/rtmp2rtc.conf
     force: true
     mode: "0544"
   when: type.rtmp2rtc == "on"
 
+- name: Configure RTMP 2 RTC
+  template:
+    src: /opt/manager/templates/rtc2rtmp.j2
+    dest: /opt/srs/trunk/conf/rtc2rtmp.conf
+    force: true
+    mode: "0544"
+  when: type.rtc2rtmp == "on"
+
 - name: Configure HLS
   template:
     src: /opt/manager/templates/hls.j2
-    dest: /opt/manager/bins/srs/trunk/conf/hls.conf
+    dest: /opt/srs/trunk/conf/hls.conf
     force: true
     mode: "0544"
   when: type.hls == "on"
@@ -41,7 +49,7 @@
 - name: Configure HLS Edge
   template:
     src: /opt/manager/templates/hls.edge.j2
-    dest: /opt/manager/bins/srs/trunk/conf/hls.edge.conf
+    dest: /opt/srs/trunk/conf/hls.edge.conf
     force: true
     mode: "0544"
   when: type.hlsedge == "on"
@@ -49,7 +57,7 @@
 - name: Configure HLS Origin
   template:
     src: /opt/manager/templates/hls.origin.j2
-    dest: /opt/manager/bins/srs/trunk/conf/hls.origin.conf
+    dest: /opt/srs/trunk/conf/hls.origin.conf
     force: true
     mode: "0544"
   when: type.hlsorigin == "on"
@@ -57,7 +65,7 @@
 - name: Configure DASH
   template:
     src: /opt/manager/templates/dash.j2
-    dest: /opt/manager/bins/srs/trunk/conf/dash.conf
+    dest: /opt/srs/trunk/conf/dash.conf
     force: true
     mode: "0544"
   when: type.dash == "on"
@@ -65,7 +73,7 @@
 - name: Configure Edge
   template:
     src: /opt/manager/templates/edge.j2
-    dest: /opt/manager/bins/srs/trunk/conf/edge.conf
+    dest: /opt/srs/trunk/conf/edge.conf
     force: true
     mode: "0544"
   when: type.edge == "on"

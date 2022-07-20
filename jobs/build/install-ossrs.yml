@@ -1,11 +1,11 @@
 ---
 - name: Download OSSRS files
   git:
-    repo: "https://github.com/ossrs/srs.git"
+    repo: https://github.com/ossrs/srs.git
     version: develop
-    dest: "/opt/manager/bins/srs"
+    dest: /opt/srs
 
 - name: Build OSSRS
   shell:
-    chdir: "/opt/manager/bins/srs/trunk"
+    chdir: /opt/srs/trunk
     cmd: ./configure && make

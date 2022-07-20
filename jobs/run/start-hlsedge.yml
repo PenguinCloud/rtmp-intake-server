@@ -1,5 +1,5 @@
 ---
 - name: Start HLS Edge Server
   shell:
-    chdir: "/opt/manager/bins/srs/trunk"
+    chdir: "/opt/srs/trunk"
     cmd: ./objs/srs -c conf/hls.edge.conf

@@ -17,3 +17,5 @@ type:
   rtc: "{{ lookup('env', 'RTC') }}"
   hlsorigin: "{{ lookup('env', 'HLSORIGIN') }}"
   hlsedge: "{{ lookup('env', 'HLSEDGE') }}"
+  rtc2rtmp: "{{ lookup('env', 'RTC2RTMP') }}"
+  edge: "{{ lookup('env', 'EDGE') }}"

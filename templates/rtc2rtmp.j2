@@ -1,42 +1,38 @@
-# WebRTC streaming config for SRS.
-# @see full.conf for detail config.
-
-listen              "{{ server.portone }}";
-max_connections     "{{ server.maxconnection }}";
+listen              {{ server.portone }};
+max_connections     1000;
 daemon              off;
 srs_log_tank        console;
 
 http_server {
     enabled         on;
-    listen          "{{ server.porttwo }}";
+    listen          {{ server.porttwo }};
     dir             ./objs/nginx/html;
 }
 
 http_api {
     enabled         on;
-    listen          "{{ server.portthree }}";
+    listen          {{ server.portthree }};
 }
 stats {
     network         0;
 }
 rtc_server {
-    enabled "{{ type.rtc }}";
-    listen "{{ server.portfour }}"; # UDP port
+    enabled on;
+    listen {{ server.portfour }}; # UDP port
     # @see https://github.com/ossrs/srs/wiki/v4_CN_WebRTC#config-candidate
     candidate $CANDIDATE;
 }
 
 vhost __defaultVhost__ {
     rtc {
-        enabled     "{{ type.rtc }}";
+        enabled     {{ type.rtc }};
         # @see https://github.com/ossrs/srs/wiki/v4_CN_WebRTC#rtmp-to-rtc
-        rtmp_to_rtc "{{ type.rtmp2rtc }}";
+        rtmp_to_rtc {{ type.rtmp2rtc }};
         # @see https://github.com/ossrs/srs/wiki/v4_CN_WebRTC#rtc-to-rtmp
-        rtc_to_rtmp "{{ type.rtc2rtmp }}";
+        rtc_to_rtmp {{ type.rtc2rtmp }};
     }
     http_remux {
         enabled     on;
         mount       [vhost]/[app]/[stream].flv;
     }
 }
-

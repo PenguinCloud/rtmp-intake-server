@@ -1,5 +1,5 @@
 ---
 - name: Start HLS Server
   shell:
-    chdir: "/opt/manager/bins/srs/trunk"
+    chdir: "/opt/srs/trunk"
     cmd: ./objs/srs -c conf/hls.conf

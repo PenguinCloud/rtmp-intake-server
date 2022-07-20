@@ -3,7 +3,7 @@ LABEL company="Penguin Tech Group LLC"
 LABEL org.opencontainers.image.authors="info@penguintech.group"
 COPY . /opt/manager/
 WORKDIR /opt/manager
-# RUN apt update && apt dist-upgrade -y && apt auto-remove -y && apt clean -y
+RUN apt update && apt dist-upgrade -y && apt auto-remove -y && apt clean -y
 # PUT YER ARGS in here
 
 ARG IP=0.0.0.0
@@ -16,16 +16,16 @@ ARG PORT6=8081
 ARG MAXCONNECTION=1000
 # Choices are on (Enabled) or off (Disabled)
 ARG RTMP="off"
-ARG HLS="on"
+ARG HLS="off"
 ARG DASH="off"
 ARG RTMP2RTC="off"
 ARG RTC="off"
 ARG HLSORIGIN="off"
 ARG HLSEDGE="off"
-ARG RTC2RTMP="off"
-RUN ansible-playbook upstart.yml --tags build -c local
+ARG RTC2RTMP="on"
+RUN ansible-playbook /opt/manager/build.yml -c local
 # PUT YER ENVS in here
 # Choice of rtmp, rtc, rtmp2rtc, dash, hls, hlsorigin or hlsedge
-ENV EXECTYPE="hls"
+ENV EXECTYPE="rtc2rtmp"
 EXPOSE 1935 1985 8080 8000/udp 10080/udp 8081
 ENTRYPOINT ["/bin/bash","/opt/manager/entrypoint.sh"]
