@@ -64,6 +64,7 @@ prod-merge:
   rules:
     - if: $CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE == "merge_request_event"
 
+
 prod-sched:
   stage: build
   retry:
