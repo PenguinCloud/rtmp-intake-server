@@ -28,4 +28,5 @@ RUN ansible-playbook /opt/manager/build.yml -c local
 # Choice of rtmp, rtc, rtmp2rtc, dash, hls, hlsorigin or hlsedge
 ENV EXECTYPE="rtc2rtmp"
 EXPOSE 1935 1985 8080 8000/udp 10080/udp 8081
+# USER ptg-user
 ENTRYPOINT ["/bin/bash","/opt/manager/entrypoint.sh"]
