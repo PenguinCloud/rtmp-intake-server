@@ -1,0 +1,49 @@
+---
+- name: Test SRS Ports
+  include_tasks:
+    file: test-srs-ports.yml
+
+- name: Test Dash Ports
+  include_tasks:
+    file: test-dash-ports.yml
+  when: server.exectype == "dash"
+
+- name: Test Edge Ports
+  include_tasks:
+    file: test-edge-ports.yml
+  when: server.exectype == "edge"
+
+- name: Test HLS Ports
+  include_tasks:
+    file: test-hls-ports.yml
+  when: server.exectype == "hls"
+
+- name: Test HLS Edge Ports
+  include_tasks:
+    file: test-hlsedge-ports.yml
+  when: server.exectype == "hlsedge"
+
+- name: Test HLS Origin Ports
+  include_tasks:
+    file: test-hlsorigin-ports.yml
+  when: server.exectype == "hlsorigin"
+
+- name: Test RTC to RTMP Ports
+  include_tasks:
+    file: test-rtc2rtmp-ports.yml
+  when: server.exectype == "rtc2rtmp"
+
+- name: Test RTC Ports
+  include_tasks:
+    file: test-rtc-ports.yml
+  when: server.exectype == "rtc"
+
+- name: Test RTMP to RTC Ports
+  include_tasks:
+    file: test-rtmp2rtc-ports.yml
+  when: server.exectype == "rtmp2rtc"
+
+- name: Test RTMP Ports
+  include_tasks:
+    file: test-rtmp-ports.yml
+  when: server.exectype == "rtmp"

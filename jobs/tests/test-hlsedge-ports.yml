@@ -1,0 +1,11 @@
+- name: Check if port 8080 listening
+  wait_for:
+    port: "{{ server.porttwo }}"
+    delay: 5
+    timeout: 10
+
+- name: Check if port 8081 is listening
+  wait_for:
+    port: "{{ server.portsix }}"
+    delay: 5
+    timeout: 10
