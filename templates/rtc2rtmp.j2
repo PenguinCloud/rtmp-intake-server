@@ -1,24 +1,24 @@
-listen              {{ server.portone }};
+listen              {{ port.one }};
 max_connections     1000;
 daemon              off;
 srs_log_tank        console;
 
 http_server {
     enabled         on;
-    listen          {{ server.porttwo }};
+    listen          {{ port.two }};
     dir             ./objs/nginx/html;
 }
 
 http_api {
     enabled         on;
-    listen          {{ server.portthree }};
+    listen          {{ port.three }};
 }
 stats {
     network         0;
 }
 rtc_server {
     enabled on;
-    listen {{ server.portfour }}; # UDP port
+    listen {{ port.four }}; # UDP port
     # @see https://github.com/ossrs/srs/wiki/v4_CN_WebRTC#config-candidate
     candidate $CANDIDATE;
 }

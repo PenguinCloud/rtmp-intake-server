@@ -1,5 +1,5 @@
 - name: Check if port 1935 is listening
   wait_for:
-    port: "{{ server.portone }}"
+    port: "{{ port.one }}"
     delay: 5
     timeout: 10

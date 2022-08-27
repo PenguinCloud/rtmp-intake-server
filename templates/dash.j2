@@ -2,13 +2,13 @@
 # @see https://github.com/ossrs/srs/wiki/v1_CN_SampleDASH
 # @see full.conf for detail config.
 
-listen              "{{ server.portone }}";
+listen              "{{ port.one }}";
 max_connections     "{{ server.maxconnection }}";
 daemon              off;
 srs_log_tank        console;
 http_server {
     enabled         on;
-    listen          "{{ server.porttwo }}";
+    listen          "{{ port.two }}";
     dir             ./objs/nginx/html;
 }
 vhost __defaultVhost__ {

@@ -1,23 +1,23 @@
 # main config for srs.
 # @see full.conf for detail config.
 
-listen              "{{ server.portone }}";
+listen              "{{ port.one }}";
 max_connections     "{{ server.maxconnection }}";
 #srs_log_tank        file;
 #srs_log_file        ./objs/srs.log;
 daemon              on;
 http_api {
     enabled         on;
-    listen          "{{ server.portthree }}";
+    listen          "{{ port.three }}";
 }
 http_server {
     enabled         on;
-    listen          "{{ server.porttwo }}";
+    listen          "{{ port.two }}";
     dir             ./objs/nginx/html;
 }
 rtc_server {
     enabled on;
-    listen "{{ server.portfour }}"; # UDP port
+    listen "{{ port.four }}"; # UDP port
     # @see https://github.com/ossrs/srs/wiki/v4_CN_WebRTC#config-candidate
     candidate $CANDIDATE;
 }

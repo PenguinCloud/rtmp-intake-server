@@ -1,17 +1,17 @@
 - name: Check if port 1935 is listening
   wait_for:
-    port: "{{ server.portone }}"
+    port: "{{ port.one }}"
     delay: 5
     timeout: 10
 
 - name: Check if port 1985 is listening
   wait_for:
-    port: "{{ server.portthree }}"
+    port: "{{ port.three }}"
     delay: 5
     timeout: 10
 
 - name: Check if port 8000 is listening
   wait_for:
-    port: "{{ server.portfour }}"
+    port: "{{ port.four }}"
     delay: 5
     timeout: 10

@@ -13,6 +13,7 @@ ARG PORT3=1985
 ARG PORT4=8000
 ARG PORT5=10080
 ARG PORT6=8081
+ARG PORT7=25565
 ARG MAXCONNECTION=1000
 # Choices are on (Enabled) or off (Disabled)
 ARG RTMP="off"
@@ -27,6 +28,6 @@ RUN ansible-playbook /opt/manager/build.yml -c local
 # PUT YER ENVS in here
 # Choice of rtmp, rtc, rtmp2rtc, dash, hls, hlsorigin or hlsedge
 ENV EXECTYPE="rtc2rtmp"
-EXPOSE 1935 1985 8080 8000/udp 10080/udp 8081
+EXPOSE 1935 1985 8080 8000/udp 10080/udp 8081 25565
 # USER ptg-user
 ENTRYPOINT ["/bin/bash","/opt/manager/entrypoint.sh"]

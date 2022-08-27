@@ -1,11 +1,11 @@
 
-listen              "{{ server.portone }}";
+listen              "{{ port.one }}";
 max_connections     "{{ server.maxconnection }}";
 daemon              off;
 srs_log_tank        console;
 http_server {
     enabled         on;
-    listen          "{{ server.porttwo }}";
+    listen          "{{ port.two }}";
 }
 vhost __defaultVhost__ {
     hls {

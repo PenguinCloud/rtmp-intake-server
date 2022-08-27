@@ -7,6 +7,12 @@ services:
       - /opt/manager/vars
     ports:
       - 25565:25565
+      - 1935:1935
+      - 1985:1985
+      - 8080:8080
+      - 8000:8000
+      - 10080:10080
+      - 8081:8081
     restart: always
     healthcheck:
       test: [ "CMD","ansible-playbook","upstart.yml","--tag","test" ]
