@@ -1,15 +1,13 @@
-[![Publish Docker image](https://github.com/PenguinCloud/project-template/actions/workflows/docker-image.yml/badge.svg)](https://github.com/PenguinCloud/core/actions/workflows/docker-image.yml) [![version](https://img.shields.io/badge/version-0.0.0-yellow.svg)](https://semver.org) ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/penguincloud/project-tempalte?sort=date&style=plastic)
-
-
 # Project Overview
-RTMP Intake Server will allow you to use your own server to stream to platforms like Twitch, Youtube and more. This way you have more control.
+This is a great server as a "Middleman" style server to save your recordings / live streams, it acts as a middle man between your PC and which ever streaming service you are streaming to. With a wide range of options for you to use.
 
+>>
 # Why this image vs others
 ## Built in self testing and healing
 All PTG builds have unit and dynamic tests as part of the build of their images, as well as during runtime to ensure the system keeps running as expected. If the system falls out of bounds of the test, the images have some self healing capabilities fix common minor problems.
 
-## Secured... even if the software isn'template
-All PTG images under go a 8 stage security check to ensure not only is the PTG portion of the code secure, but to also identify and help remediate the underlying libraries and software security. 
+## Secured... even if the software isn't template
+All PTG images under go an 8 stage security check to ensure not only is the PTG portion of the code secure, but to also identify and help remediate the underlying libraries and software security. 
 
 ## Updated daily
 All of our images are checked daily for updates from upstream sources.
@@ -31,13 +29,12 @@ PTG relies on volunteer customers and community members to beta test images, ens
 
 # Contributors
 ## PTG
-Maintainer: venic@penguintech.group
-General: info@penguintech.group
+Maintainer: venic@penguintech.io
+General: info@penguintech.io
 
 ## community
 
 * Insert list of community collaborators
-
 
 # Resources
 Documentation: ./docs/
